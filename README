@@ -33,4 +33,8 @@ Post.find_average_of( 4 ) #=> array of posts
 
 See acts_as_rateable.rb for further details!
 
-Copyright (c) 2007 Ferenc Fekete, http://xpnindustries.com , released under the MIT license
+# Notes
+
+Jinzhu - generator is compatible with rails 3.
+
+Copyright (c) 2007-2010 Ferenc Fekete, http://feketeferenc.hu , released under the MIT license
