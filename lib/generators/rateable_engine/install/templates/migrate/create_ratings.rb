@@ -2,10 +2,10 @@ class CreateRatings < ActiveRecord::Migration
   
   def self.up
     create_table :ratings do |t|
-    	t.column :user_id, :integer
-      t.column :rate_id, :integer
-      t.column :rateable_id, :integer
-      t.column :rateable_type, :string, :limit => 32
+    	t.integer :user_id
+      t.integer :rate_id
+      t.integer :rateable_id
+      t.string  :rateable_type, :limit => 32
       t.timestamps
     end
     

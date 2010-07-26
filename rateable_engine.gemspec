@@ -30,6 +30,9 @@ Gem::Specification.new do |s|
      "lib/rateable_engine.rb",
      "lib/rateable_engine/acts_as_rateable.rb",
      "lib/rateable_engine/engine.rb",
+     "pkg/Rateable Engine-0.0.0.gem",
+     "pkg/rateable_engine-0.0.0.gem",
+     "rateable_engine.gemspec",
      "test/acts_as_rateable_test.rb"
   ]
   s.homepage = %q{http://github.com/adriancuadros/acts_as_rateable}

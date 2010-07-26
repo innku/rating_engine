@@ -2,7 +2,7 @@ class CreateRates < ActiveRecord::Migration
   
   def self.up
     create_table :rates do |t|
-      t.column :score, :integer
+      t.integer :score
     end
   end
   

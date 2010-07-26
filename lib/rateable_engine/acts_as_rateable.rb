@@ -7,7 +7,7 @@ module RateableEngine
 
     module AssignRateWithUserId
   	  def <<( rate )
-  	      r = Rating.new
+  	      r = ConfigurationHelper.rate_class.new
   	      r.rate = rate
   	      r.rateable = proxy_owner
   	      r.user_id = rate.user_id
@@ -17,8 +17,9 @@ module RateableEngine
 	
     module ClassMethods
       def acts_as_rateable(options = {})
-        has_many :ratings, :as => :rateable, :dependent => :destroy, :include => :rate
-        has_many :rates, :through => :ratings, :extend => AssignRateWithUserId
+        has_many  :ratings, :as => :rateable, :class_name => RateableEngine.rating_class, 
+                  :dependent => :destroy, :include => :rate
+        has_many  :rates, :through => :ratings, :class_name => RateableEngine.rate_class, :extend => AssignRateWithUserId
       
         include RateableEngine::ActsAs::InstanceMethods
         extend RateableEngine::ActsAs::SingletonMethods
@@ -36,7 +37,7 @@ module RateableEngine
   		# Rates the object by a given score. A user object can be passed to the method.
   		def rate_it( score, user_id )
   			return unless score
-  			rate = Rate.find_or_create_by_score( score.to_i )
+  			rate = ConfigurationHelper.rate_class.find_or_create_by_score( score.to_i )
   			rate.user_id = user_id
   			rates << rate
   		end

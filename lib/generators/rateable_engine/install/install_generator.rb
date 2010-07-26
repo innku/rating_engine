@@ -4,6 +4,8 @@ module RateableEngine
   module Generators
     class InstallGenerator < Rails::Generators::Base 
       include Rails::Generators::Migration
+      
+      source_root File.expand_path('../templates',__FILE__)
 
       def self.next_migration_number(path)
         @seconds = @seconds.nil? ? Time.now.sec : (@seconds + 1)
@@ -12,11 +14,15 @@ module RateableEngine
       end
 
       def generate_rates_migration
-        migration_template 'create_rates.rb', 'db/migrate/create_rates' 
+        migration_template 'migrate/create_rates.rb', 'db/migrate/create_rates.rb' 
       end
       
       def generate_ratings_migration
-        migration_template 'create_ratings.rb', 'db/migrate/create_ratings' 
+        migration_template 'migrate/create_ratings.rb', 'db/migrate/create_ratings.rb' 
+      end
+      
+      def generate_configuration_file
+        copy_file   'initializers/rateable_engine.rb', 'config/initializers/rateable_engine.rb' 
       end
       
       def show_readme
