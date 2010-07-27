@@ -6,6 +6,6 @@ RatingEngine.setup do |config|
   
   config.max_score = 5
   
-  config.min_score = 5
+  config.min_score = 1
   
 end

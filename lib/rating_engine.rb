@@ -3,7 +3,7 @@ module RatingEngine
   mattr_accessor  :rating_class
   @@rating_class = 'RatingEngine::Rating'
   
-  mattr_accessor  :rate_classs
+  mattr_accessor  :rate_class
   @@rate_class = 'RatingEngine::Rate'
   
   mattr_accessor  :max_score

@@ -55,7 +55,7 @@ module RatingEngine
 
   		# Returns the average rating in percent. The maximal score must be provided	or the default value (5) will be used.
   		# TODO make maximum_rating automatically calculated.
-  		def average_rating_percent( maximum_rating = 5 )
+  		def average_rating_percent( maximum_rating = RatingEngine.max_score )
   			f = 100 / maximum_rating.to_f
   			average_rating * f
   		end
