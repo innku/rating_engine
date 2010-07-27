@@ -1,4 +1,4 @@
-module RateableEngine
+module RatingEngine
   class RatingsController < ApplicationController
     
     def create

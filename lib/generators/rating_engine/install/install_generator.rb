@@ -1,6 +1,6 @@
 require 'rails/generators/migration'
 
-module RateableEngine
+module RatingEngine
   module Generators
     class InstallGenerator < Rails::Generators::Base 
       include Rails::Generators::Migration
@@ -22,7 +22,7 @@ module RateableEngine
       end
       
       def generate_configuration_file
-        copy_file   'initializers/rateable_engine.rb', 'config/initializers/rateable_engine.rb' 
+        copy_file   'initializers/rating_engine.rb', 'config/initializers/rating_engine.rb' 
       end
       
       def show_readme

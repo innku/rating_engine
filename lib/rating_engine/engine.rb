@@ -1,7 +1,7 @@
-require 'rateable_engine'
+require 'rating_engine'
 require 'rails'
 
-module RateableEngine
+module RatingEngine
   class Engine < Rails::Engine
     config.before_eager_load { |app| app.reload_routes! }
   end

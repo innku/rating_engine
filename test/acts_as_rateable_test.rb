@@ -1,6 +1,6 @@
 require 'test/unit'
 
-class RateableEngine < Test::Unit::TestCase
+class RatingEngine < Test::Unit::TestCase
   # Replace this with your real tests.
   def test_this_plugin
     flunk

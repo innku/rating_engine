@@ -1,10 +1,10 @@
-module RateableEngine
+module RatingEngine
   
   mattr_accessor  :rating_class
-  @@rating_class = 'RateableEngine::Rating'
+  @@rating_class = 'RatingEngine::Rating'
   
   mattr_accessor  :rate_classs
-  @@rate_class = 'RateableEngine::Rate'
+  @@rate_class = 'RatingEngine::Rate'
   
   mattr_accessor  :max_score
   @@max_score = 5
@@ -17,9 +17,9 @@ module RateableEngine
   end
   
   if defined?(Rails) && Rails::VERSION::MAJOR == 3
-    require 'rateable_engine/configuration_helper'
-    require 'rateable_engine/acts_as_rateable'
-    require 'rateable_engine/engine'
+    require 'rating_engine/configuration_helper'
+    require 'rating_engine/acts_as_rateable'
+    require 'rating_engine/engine'
   end
   
 end

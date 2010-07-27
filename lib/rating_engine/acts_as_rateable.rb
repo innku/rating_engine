@@ -1,4 +1,4 @@
-module RateableEngine
+module RatingEngine
   module ActsAs
     
     def self.included(base)
@@ -17,12 +17,12 @@ module RateableEngine
 	
     module ClassMethods
       def acts_as_rateable(options = {})
-        has_many  :ratings, :as => :rateable, :class_name => RateableEngine.rating_class, 
+        has_many  :ratings, :as => :rateable, :class_name => RatingEngine.rating_class, 
                   :dependent => :destroy, :include => :rate
-        has_many  :rates, :through => :ratings, :class_name => RateableEngine.rate_class, :extend => AssignRateWithUserId
+        has_many  :rates, :through => :ratings, :class_name => RatingEngine.rate_class, :extend => AssignRateWithUserId
       
-        include RateableEngine::ActsAs::InstanceMethods
-        extend RateableEngine::ActsAs::SingletonMethods
+        include RatingEngine::ActsAs::InstanceMethods
+        extend RatingEngine::ActsAs::SingletonMethods
       end
     end
 	
@@ -68,4 +68,4 @@ module RateableEngine
 	end
 end
 
-ActiveRecord::Base.send :include, RateableEngine::ActsAs
+ActiveRecord::Base.send :include, RatingEngine::ActsAs

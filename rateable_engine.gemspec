@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{rateable_engine}
+  s.name = %q{rating_engine}
   s.version = "0.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -23,16 +23,16 @@ Gem::Specification.new do |s|
      "app/controllers/ratings_controller.rb",
      "app/models/rate.rb",
      "app/models/rating.rb",
-     "lib/generators/rateable_engine/install/install_generator.rb",
-     "lib/generators/rateable_engine/install/templates/README",
-     "lib/generators/rateable_engine/install/templates/migrate/create_rates.rb",
-     "lib/generators/rateable_engine/install/templates/migrate/create_ratings.rb",
-     "lib/rateable_engine.rb",
-     "lib/rateable_engine/acts_as_rateable.rb",
-     "lib/rateable_engine/engine.rb",
+     "lib/generators/rating_engine/install/install_generator.rb",
+     "lib/generators/rating_engine/install/templates/README",
+     "lib/generators/rating_engine/install/templates/migrate/create_rates.rb",
+     "lib/generators/rating_engine/install/templates/migrate/create_ratings.rb",
+     "lib/rating_engine.rb",
+     "lib/rating_engine/acts_as_rateable.rb",
+     "lib/rating_engine/engine.rb",
      "pkg/Rateable Engine-0.0.0.gem",
-     "pkg/rateable_engine-0.0.0.gem",
-     "rateable_engine.gemspec",
+     "pkg/rating_engine-0.0.0.gem",
+     "rating_engine.gemspec",
      "test/acts_as_rateable_test.rb"
   ]
   s.homepage = %q{http://github.com/adriancuadros/acts_as_rateable}
