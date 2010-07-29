@@ -1,6 +1,6 @@
 module RatingEngine
   module Generators
-    class InstallGenerator < Rails::Generators::Base
+    class ViewsGenerator < Rails::Generators::Base
       source_root File.expand_path('../../../../../app',__FILE__)
       
       def generate_partial

@@ -1,0 +1,15 @@
+<div class='rating'>
+	<%= hidden_field_tag :rating_url, url, :id => nil, :class => 'url' %>
+	<ul class='star-rating'>
+		<li class='current-rating' id='current-rating' style="width: <%= current_score %>px"></li>
+		<% if enabled %>
+			<% (RatingEngine.min_score..RatingEngine.max_score).each do |score| %>
+				<li>
+					<a href="#" title='<%= score %> stars out of <%= RatingEngine.max_score %>' style='left:<%= ((score) * 25) - 25%>px'>
+						<%= score %>
+					</a>
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
+</div>
