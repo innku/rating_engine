@@ -1,11 +1,11 @@
 module RatingEngine
   module ConfigurationHelper
     
-    def rating_class
+    def self.rating_class
       eval(RatingEngine.rating_class)
     end
     
-    def rate_class
+    def self.rate_class
       eval(RatingEngine.rate_class)
     end
     

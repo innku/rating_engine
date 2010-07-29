@@ -1,0 +1,49 @@
+/*** USES DAVID BAKER STYLESHEET http://dtbaker.com.au ***/
+
+.star-rating{
+	list-style:none;
+	margin-left:5px !important;
+	padding:0px;
+	width: 125px;
+	height: 25px;
+	position: relative;
+	background: url(/images/star_sprite.gif) top left repeat-x;		
+}
+
+.star-rating li{
+	padding:0px;
+	margin:0px;
+	/*\*/
+	float: left;
+	/* */
+}
+.star-rating li a{
+	display:block;
+	width:25px;
+	height: 25px;
+	text-decoration: none;
+	text-indent: -9000px;
+	z-index: 20;
+	position: absolute;
+	padding: 0px;
+}
+.star-rating li a:hover{
+	background: url(/images/star_sprite.gif) left bottom;
+	z-index: 2;
+	left: 0px;
+}
+.star-rating a:focus,
+.star-rating a:active{
+	border:0;	
+	-moz-outline-style: none;
+   	        outline: none; 
+}
+
+.star-rating li.current-rating{
+	background: url(/images/star_sprite.gif) left center;
+	position: absolute;
+	height: 25px;
+	display: block;
+	text-indent: -9000px;
+	z-index: 1;
+}

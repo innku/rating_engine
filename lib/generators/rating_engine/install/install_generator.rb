@@ -4,8 +4,9 @@ module RatingEngine
   module Generators
     class InstallGenerator < Rails::Generators::Base 
       include Rails::Generators::Migration
-      
       source_root File.expand_path('../templates',__FILE__)
+      
+      class_option  :with_jq,         :type => :boolean, :default => false
 
       def self.next_migration_number(path)
         @seconds = @seconds.nil? ? Time.now.sec : (@seconds.to_i + 1)
@@ -23,6 +24,17 @@ module RatingEngine
       
       def generate_configuration_file
         copy_file   'initializers/rating_engine.rb', 'config/initializers/rating_engine.rb' 
+      end
+      
+      def generate_stylesheet_and_images
+        copy_file   'stylesheets/star_rating.css', 'public/stylesheets/star_rating.rb' 
+        copy_file   'images/star_sprite.gif', 'public/images/star_sprite.gif'
+      end
+      
+      def generate_jquery
+        unless options.with_jq?
+          copy_file   'javascripts/rating_engine.jquery.js', 'public/javascripts/rating_engine.jquery.js'
+        end
       end
       
       def show_readme

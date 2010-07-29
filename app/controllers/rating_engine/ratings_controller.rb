@@ -3,10 +3,10 @@ module RatingEngine
     
     def create
       @rateable = rateable_class.find(params[rateable_param_key])
-      @rating = @rateable.rate_it(params[:score], current_user)
+      @rating = @rateable.ratings.build(params[:rating].merge({:user => current_user}))
       respond_to do |format|
-        unless @rating.nil?
-          format.json{ render :json => @rating }
+        if @rating.save
+          format.json{ render :json => @rating.to_json(:methods => :rateable_average_rating) }
         else
           format.json{ render :json => @rating.errors, :status => :unprocessable_entity }
         end
@@ -14,11 +14,15 @@ module RatingEngine
     end
     
     def update
-      
-    end
-    
-    def destroy
-      
+      @rateable = rateable_class.find(params[rateable_param_key])
+      @rating = @rateable.ratings.where(:user_id => current_user.id).first
+      respond_to do |format|
+        if @rating.update_attributes(params[:rating].merge({:user => current_user}))
+          format.json{ render :json => @rating.to_json(:methods => :rateable_average_rating) }
+        else
+          format.json{ render :json => @rating.errors, :status => :unprocessable_entity }
+        end
+      end
     end
     
     private
@@ -28,7 +32,7 @@ module RatingEngine
     end
     
     def rateable_class_name
-      rateable_param_key.to_s.delete('_id').classify
+      rateable_param_key.to_s.gsub(/_id/, '').classify
     end
     
     def rateable_class

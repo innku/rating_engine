@@ -1,3 +1,18 @@
+# encoding: UTF-8
+
+require 'rake'
+require 'rake/testtask'
+require 'rake/rdoctask'
+
+desc 'Run Rating Engine unit tests.'
+Rake::TestTask.new(:test) do |test|
+  test.libs << 'lib' << 'test'
+  test.pattern = 'test/**/test_*.rb'
+  test.verbose = true
+end
+
+task :default => :test
+
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|

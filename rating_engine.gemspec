@@ -25,13 +25,16 @@ Gem::Specification.new do |s|
      "app/models/rating_engine/rating.rb",
      "lib/generators/rating_engine/install/install_generator.rb",
      "lib/generators/rating_engine/install/templates/README",
-     "lib/generators/rating_engine/install/templates/initializers/rateable_engine.rb",
+     "lib/generators/rating_engine/install/templates/initializers/rating_engine.rb",
      "lib/generators/rating_engine/install/templates/migrate/create_rates.rb",
      "lib/generators/rating_engine/install/templates/migrate/create_ratings.rb",
      "lib/rating_engine.rb",
      "lib/rating_engine/acts_as_rateable.rb",
      "lib/rating_engine/configuration_helper.rb",
      "lib/rating_engine/engine.rb",
+     "lib/rating_engine/routes.rb",
+     "pkg/rating_engine-0.0.0.gem",
+     "rating_engine.gemspec",
      "test/acts_as_rateable_test.rb"
   ]
   s.homepage = %q{http://github.com/adriancuadros/acts_as_rateable}

@@ -4,22 +4,12 @@ module RatingEngine
     def self.included(base)
       base.extend(ClassMethods)
     end
-
-    module AssignRateWithUserId
-  	  def <<( rate )
-  	      r = ConfigurationHelper.rate_class.new
-  	      r.rate = rate
-  	      r.rateable = proxy_owner
-  	      r.user_id = rate.user_id
-  	      r.save
-  	  end
-  	end 
 	
     module ClassMethods
       def acts_as_rateable(options = {})
         has_many  :ratings, :as => :rateable, :class_name => RatingEngine.rating_class, 
                   :dependent => :destroy, :include => :rate
-        has_many  :rates, :through => :ratings, :class_name => RatingEngine.rate_class, :extend => AssignRateWithUserId
+        has_many  :rates, :through => :ratings, :class_name => RatingEngine.rate_class
       
         include RatingEngine::ActsAs::InstanceMethods
         extend RatingEngine::ActsAs::SingletonMethods
@@ -34,13 +24,6 @@ module RatingEngine
   	end
 	
   	module InstanceMethods
-  		# Rates the object by a given score. A user object can be passed to the method.
-  		def rate_it( score, user_id )
-  			return unless score
-  			rate = ConfigurationHelper.rate_class.find_or_create_by_score( score.to_i )
-  			rate.user_id = user_id
-  			rates << rate
-  		end
 		
   		# Calculates the average rating. Calculation based on the already given scores.
   		def average_rating
