@@ -1,6 +1,6 @@
 module RatingEngine
   class Rating < ActiveRecord::Base
-    belongs_to :rate
+    belongs_to :rate, :class_name => RatingEngine.rate_class
     belongs_to :user
     belongs_to :rateable, :polymorphic => true
     

@@ -32,7 +32,7 @@ module RatingEngine
       end
       
       def generate_jquery
-        unless options.with_jq?
+        if options.with_jq?
           copy_file   'javascripts/rating_engine.jquery.js', 'public/javascripts/rating_engine.jquery.js'
         end
       end

@@ -1,7 +1,7 @@
 module RatingEngine
   module RatingsHelper
     def star_rating_for(rateable, params={})
-      enabled, show_score = (params[:enabled] || true), (params[:show_score] || true)
+      enabled, show_score = params[:enabled].nil? ? true : params[:enabled], (params[:show_score] || true)
       current_score = show_score ? score_in_pixels(rateable.average_rating) : 0
     
       render :partial => 'rating_engine/ratings/star_rating', 

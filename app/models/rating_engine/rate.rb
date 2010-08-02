@@ -1,6 +1,6 @@
 module RatingEngine
   class Rate < ActiveRecord::Base
-    has_many :ratings
+    has_many :ratings, :class_name => RatingEngine.rating_class
   
     validates_presence_of     :score
     validates_uniqueness_of   :score
