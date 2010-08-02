@@ -6,8 +6,10 @@ module RatingEngine
       @rating = @rateable.ratings.build(params[:rating].merge({:user => current_user}))
       respond_to do |format|
         if @rating.save
+          format.html{ html_action!}
           format.json{ render :json => @rating.to_json(:methods => :rateable_average_rating) }
         else
+          format.html{ html_action! }
           format.json{ render :json => @rating.errors, :status => :unprocessable_entity }
         end
       end
@@ -18,14 +20,24 @@ module RatingEngine
       @rating = @rateable.ratings.where(:user_id => current_user.id).first
       respond_to do |format|
         if @rating.update_attributes(params[:rating].merge({:user => current_user}))
+          format.html{ html_action! }
           format.json{ render :json => @rating.to_json(:methods => :rateable_average_rating) }
         else
+          format.html{ html_action! }
           format.json{ render :json => @rating.errors, :status => :unprocessable_entity }
         end
       end
     end
     
     private
+    
+    def html_action!
+      if params[:redirect_url].nil?
+        render :nothing => true
+      else
+        redirect_to [:redirect_url]
+      end
+    end
     
     def rateable_param_key
       params.keys.find{|key| key.include?('_id') }.to_sym
