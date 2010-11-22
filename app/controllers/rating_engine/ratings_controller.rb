@@ -8,7 +8,7 @@ module RatingEngine
         if @rating.save
           format.html{ ratings_render_or_redirect!}
           format.json{ render :json => @rating.to_json(:methods => :rateable_average_rating) }
-        else
+        else          
           format.html{ ratings_render_or_redirect! }
           format.json{ render :json => @rating.errors, :status => :unprocessable_entity }
         end
