@@ -1,3 +1,9 @@
+=== Rating Engine
+
+We will update this README file very, very soon. If you want to use this code in your app. Please let us know and will be sure to help you out.
+
+On the meantime, Rating Engine borrows the functionality spec from acts_as_rateable, you can read the code right here:
+
 Acts As Rateble
 =============
 
